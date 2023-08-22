@@ -9,7 +9,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
 Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-pairs'}
+colorscheme nordic
 call plug#end()
 
 syntax enable
@@ -23,7 +24,7 @@ set expandtab
 set nobackup
 set nowrap
 
-set tabstop=2
+set tabstop=4
 set softtabstop=-1
 set shiftwidth=0
 set shiftround
@@ -45,13 +46,11 @@ nnoremap <silent> <A-Right> :tabm +1<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " Coc config
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<TAB>\<tab>=coc#on_enter()\<TAB>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+                            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1
