@@ -10,8 +10,9 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
 Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-pairs'}
-colorscheme nordic
 call plug#end()
+
+colorscheme nordic
 
 syntax enable
 
