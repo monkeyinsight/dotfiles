@@ -53,4 +53,11 @@ return require('packer').startup(function(use)
     use("laytan/cloak.nvim")
 
     use("lewis6991/gitsigns.nvim")
+
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 end)
