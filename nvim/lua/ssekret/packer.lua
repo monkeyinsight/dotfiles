@@ -8,14 +8,6 @@ return require('packer').startup(function(use)
         requires = { {'junegunn/fzf'} }
     }
 
-    use({
-        'AlexvZyl/nordic.nvim',
-        as = 'nordic',
-        config = function()
-            vim.cmd('colorscheme nordic')
-        end
-    })
-
     use ({
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -60,4 +52,6 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
+
+    use("edluffy/hologram.nvim")
 end)
