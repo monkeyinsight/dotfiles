@@ -8,16 +8,7 @@ return require('packer').startup(function(use)
         requires = { {'junegunn/fzf'} }
     }
 
-    use ({
-        'nvim-treesitter/nvim-treesitter',
-        run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end
-    })
-
     use("tpope/vim-fugitive")
-    use("nvim-treesitter/nvim-treesitter-context")
 
     use {
         'VonHeikemen/lsp-zero.nvim',
